@@ -13,10 +13,10 @@ def parse_command(command)
     exec ("cat README.md")
   elsif command.length == 1
     play_sound(command[0])
-  # elsif command[0] == "add"
-  #   add_song(command[1], command[2])
-  # elsif command[0] == "forget"
-  #   forget_song(command[1])
+# elsif command[0] == "add"
+#   add_song(command[1], command[2])
+# elsif command[0] == "forget"
+#   forget_song(command[1])
   elsif command.length > 3
     puts "Please give your sound and the filename a 1 word name (no spaces, underscores and hyphens are OK). If you need help, run `soundbored help`."
     exit
