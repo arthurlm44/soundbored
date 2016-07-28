@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+
+command = ARGV
+
+def parse_command(command)
+  if command.length == 0
+    puts "You must request a sound"
+    exit
+  elsif command.length == 1
+    play_song(command[0])
+  elsif command[0] == "add"
+    add_song(command[1], command[2])
+  elsif command[0] == "forget"
+    forget_song(command[1])
+  end
+end
+
+def play_song(song)
+  puts song
+end
+
+def add_song(name, song)
+end
+
+def forget_song(name)
+end
+
+parse_command(command)
