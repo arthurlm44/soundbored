@@ -1,13 +1,13 @@
-# Soundbored
+# SOUNDBORED
 Terminal based soundboard.
 
-# INSTALLATION
+## Installation
 Run the install script with `sh scripts/install.sh`
 
-# ADD SOUNDS (WIP)
+## Add Sound
 `soundbored add <sound_name> <file_name>`
 
-# DELETE SOUND (WIP)
+## Delete Sound
 `soundbored delete <sound_name> <file_name>`
 
 *Created by github.com/arthurlm44*
