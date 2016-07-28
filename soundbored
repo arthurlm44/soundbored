@@ -2,29 +2,41 @@
 
 require 'yaml'
 
-command = ARGV
+SONG_YML_PATH= "/usr/local/var/soundbored/songs.yml"
+SOUND_DIR = "/usr/local/var/soundbored/sounds/"
 
 def parse_command(command)
   if command.length == 0
-    puts "You must request a sound"
+    puts "What sound did you want to play?"
     exit
+  elsif command[0] == "help"
+    exec ("cat README.md")
   elsif command.length == 1
-    play_song(command[0])
-  elsif command[0] == "add"
-    add_song(command[1], command[2])
-  elsif command[0] == "forget"
-    forget_song(command[1])
+    play_sound(command[0])
+  # elsif command[0] == "add"
+  #   add_song(command[1], command[2])
+  # elsif command[0] == "forget"
+  #   forget_song(command[1])
+  elsif command.length > 2
+    puts "Please give your sound and the filename a 1 word name (no spaces, underscores and hyphens are OK). If you need help, run `soundbored help`."
+    exit
   end
 end
 
-def play_song(song)
-  puts song
+def play_sound(sound_name)
+  sounds = YAML.load_file(SONG_YML_PATH)
+  if sounds.key?(sound_name)
+    exec("say 'This is what #{sound_name} sounds like' && afplay '#{SOUND_DIR}#{sounds[sound_name]}'")
+  else
+    puts "I can't find that sound you requested"
+    exit
+  end
 end
 
-def add_song(name, song)
-end
+# def add_song(name, song)
+# end
 
-def forget_song(name)
-end
+# def forget_song(name)
+# end
 
-parse_command(command)
+parse_command(ARGV)
