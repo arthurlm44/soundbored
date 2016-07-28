@@ -17,7 +17,7 @@ def parse_command(command)
   #   add_song(command[1], command[2])
   # elsif command[0] == "forget"
   #   forget_song(command[1])
-  elsif command.length > 2
+  elsif command.length > 3
     puts "Please give your sound and the filename a 1 word name (no spaces, underscores and hyphens are OK). If you need help, run `soundbored help`."
     exit
   end
@@ -26,7 +26,7 @@ end
 def play_sound(sound_name)
   sounds = YAML.load_file(SONG_YML_PATH)
   if sounds.key?(sound_name)
-    exec("say 'This is what #{sound_name} sounds like' && afplay '#{SOUND_DIR}#{sounds[sound_name]}'")
+    exec("echo 'This is what #{sound_name} sounds like' && afplay '#{SOUND_DIR}#{sounds[sound_name]}'")
   else
     puts "I can't find that sound you requested"
     exit
