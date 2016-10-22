@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo "This program requires ruby and bundler"
+
+echo "Installing gems"
+bundle install
+
 echo "Setting up the soundbored sounds directory at /usr/local/var/soundbored/sounds"
 mkdir -p /usr/local/var/soundbored/sounds
 
