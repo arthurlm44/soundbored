@@ -26,5 +26,3 @@ class Soundbored < Thor
   end
 end
 
-
-
